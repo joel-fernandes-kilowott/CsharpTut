@@ -1,13 +1,28 @@
-﻿using System;
+﻿using System.Linq;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace Assignment
+namespace FirstConsoleApp
 {
-    internal class Program
-    {
-        public static void Main(string[] args)
+	internal class Program
+	{
+		static int[] data = { 40, 38, 37, 36, 34, 33, 32, 31, 30, 30, 30, 29, 26, 26, 19 };
+
+		static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            Stats.ShowOutput();
-        }
-    }
+			var spObject = new StatsProcessor();
+			spObject.Numbers = data;
+			double no = data.Length;
+			
+			float mean = spObject.CalculateMean();
+			Console.WriteLine($"Mean: {mean}");
+
+			double median = spObject.CalculateMedian();
+			Console.WriteLine($"Median : {median}");
+
+			double Mode = spObject.CalculateMode();
+			Console.WriteLine($"Mode : {Mode}");
+		}
+	}
 }
